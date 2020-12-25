@@ -3,25 +3,40 @@
 
 import time
 
+def stopWatch():
+    t = 20
 
-def countDown(arg):
+    while True:
+        mins, secs = divmod(t, 60)
+        timer = '{:02d}:{:02d}'.format(mins, secs)
+        print(timer, end="\r")
+        time.sleep(1)
+        t -= 1
+
+
+def countDown():
+
     t = 20
     stat = True
-    if arg != 'Jerry':
-        while stat:
-            mins, secs = divmod(t, 60)
-            timer = '{:02d}:{:02d}'.format(mins, secs)
-            print(timer, end="\r")
-            time.sleep(1)
-            t -= 1
-            countDown(answer)
-    else:
-        stat = False
-        print("Yezzir buddy")
+
+    while stat:
+        answer = input("Enter the Answer NOW!!!")
+        if answer == "jerry":
+            print("yessjerr")
+            stat = False
+        else:
+            print("Keep trying")
 
 
-answer = input("Enter the Answer NOW!!!")
 
-countDown(answer)
 
+stopWatch()
+countDown()
+
+# while True:
+#
+#     a = input('enter name')
+#
+#     if a == "b":
+#         break
 
